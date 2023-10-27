@@ -68,13 +68,13 @@ class MainServer:
         print("To start cracking please enter the following")
         encrypted_message = input("MD5 message: ")
         work_range = int(input("Digits: "))
-        self.distribute_work(work_range, encrypted_message)
+        self.distribute_work(work_range, encrypted_message.lower())
 
 
 if __name__ == "__main__":
     print("Welcome please enter the amount of clients that will be used")
     max_clients = int(input("Clients to use: "))
-    server = MainServer('172.16.5.10', 12345,max_clients)
+    server = MainServer('0.0.0.0', 12345,max_clients)
     server.start()
     server.start_cracking()
     server.listen_for_results()

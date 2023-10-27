@@ -61,6 +61,7 @@ class Client:
         print(f"worker SWR {sub_work_range}")
         combinations = self.generate_combinations(sub_work_range)
         result = self.crack_md5(combinations)
+        print(f"finished {sub_work_range} result: {result}")
         result_queue.put(result)
         return result
 
@@ -99,7 +100,7 @@ class Client:
         pass
 
 if __name__ == "__main__":
-    client = Client('172.16.5.10', 12345)
+    client = Client('LocalHost', 12345)
     client.connect_to_server()
     client.receive_work()
     client.split_work()
