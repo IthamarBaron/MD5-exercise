@@ -1,4 +1,4 @@
-# Server.py
+# Server.py - Ithamar Baron
 
 import socket
 import math
